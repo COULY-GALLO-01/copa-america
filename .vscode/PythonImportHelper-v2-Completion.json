@@ -1,0 +1,47 @@
+[
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "leer_equipos",
+        "kind": 2,
+        "importPath": "index",
+        "description": "index",
+        "peekOfCode": "def leer_equipos(nombre_archivo):\n    equipos = {}\n    with open(nombre_archivo, mode='r', newline='', encoding='utf-8') as archivo:\n        lector = csv.reader(archivo)\n        for fila in lector:\n            grupo, equipo = fila[0], fila[1]\n            if grupo not in equipos:\n                equipos[grupo] = {}\n            equipos[grupo][equipo] = {'Puntos': 0, 'PartidosJugados': 0, 'Victorias': 0, 'Empates': 0, 'Derrotas': 0, 'GolesAFavor': 0, 'GolesEnContra': 0, 'DiferenciaDeGoles': 0}\n    return equipos",
+        "detail": "index",
+        "documentation": {}
+    },
+    {
+        "label": "leer_partidos",
+        "kind": 2,
+        "importPath": "index",
+        "description": "index",
+        "peekOfCode": "def leer_partidos(nombre_archivo):\n    partidos = []\n    with open(nombre_archivo, mode='r', newline='', encoding='utf-8') as archivo:\n        lector = csv.reader(archivo)\n        for fila in lector:\n            partidos.append({'Match Number': int(fila[0]), 'Home Team': fila[1], 'Away Team': fila[2], 'Home Team Goals': 0, 'Away Team Goals': 0})\n    return partidos\ndef actualizar_resultados(nombre_archivo, equipos, partidos):\n    with open(nombre_archivo, mode='r', newline='', encoding='utf-8') as archivo:\n        lector = csv.reader(archivo)",
+        "detail": "index",
+        "documentation": {}
+    },
+    {
+        "label": "actualizar_resultados",
+        "kind": 2,
+        "importPath": "index",
+        "description": "index",
+        "peekOfCode": "def actualizar_resultados(nombre_archivo, equipos, partidos):\n    with open(nombre_archivo, mode='r', newline='', encoding='utf-8') as archivo:\n        lector = csv.reader(archivo)\n        for fila in lector:\n            if len(fila) != 3:\n                print(f\"Formato incorrecto en la fila: {fila}\")\n                continue\n            try:\n                match_number = int(fila[0])\n                home_team_goals = int(fila[1])",
+        "detail": "index",
+        "documentation": {}
+    },
+    {
+        "label": "actualizar_posiciones",
+        "kind": 2,
+        "importPath": "index",
+        "description": "index",
+        "peekOfCode": "def actualizar_posiciones(equipos, partido):\n    home_team = partido['Home Team']\n    away",
+        "detail": "index",
+        "documentation": {}
+    }
+]
